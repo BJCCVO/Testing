@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+        <title>BJC Help Page</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .navigation {
+                position: fixed;
+                height: 70px;
+                right: 0;
+                left: 0;
+                background-color: navy;
+            }
+
+            .navigation h1 {
+                position: fixed;
+                top: 0;
+                left: 0;
+                margin: 15px;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                color: white;
+                font-size: 40px;
+            }
+
+            ul {
+                position: relative;
+                height: 70px;
+                left: 510px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                padding-top: 10px;
+            }
+
+            .lead {
+                position:inherit;
+                height: 10px;
+                left: 20px;
+                padding-top: 0px;
+                display: flex;
+                list-style-type: disc;
+                text-transform: none;
+                text-align: left;
+                font-weight: inherit;
+            }
+
+            li {
+                display: inline-block;
+                width: 120px;
+                height: 40px;
+                padding-top: 5px;
+                margin-left: 5px;
+                font-weight: bold;
+                list-style: none;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            a {
+                position: relative;
+                cursor: pointer;
+                color: white;
+                font-size: 14px;
+                transition: color 0.25s;
+                text-decoration: none;
+            }
+
+            a::after {
+                position: absolute;
+                content: "";
+                inset: 0;
+                background: white;
+                scale: 1 0;
+                z-index: -1;
+                transition: 0.45s;
+                border-radius: 10px;
+            }
+
+            a:hover {
+                cursor: pointer;
+                color: navy;
+            }
+
+            a:hover::after {
+                scale: 1.5 1.2;
+            }
+
+            summary {
+                text-transform: uppercase;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-weight: bold;
+                font-size: 23px;
+                margin: 0;
+                padding-bottom: 0;
+            }
+
+            .content {
+                padding-left: 20px;
+                padding-top: 150px;
+            }
+
+            p {
+                padding-bottom: 5px;
+                padding-left: 25px;
+                font-family:Arial, Helvetica, sans-serif;
+                padding-top: 5px;
+                font-size: 16px;
+            }
+
+            details {
+                padding-bottom: 10px;
+                width: 1000px;
+            }
+
+            details[open] {
+                border-radius: 10px;
+            }
+
+            details[open] > summary {
+                background-color: navy;
+                color: white;
+                width: 1000px;
+            }
+
+            details > summary {
+                cursor: pointer;
+            }
+
+            /*.define {
+                border: 1px solid black;
+            }*/
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: 150px 50px 150px 50px 150px 50px 150px 50px 150px;
+                text-align: center;
+            }
+
+            .grid-container-odd {
+                display: grid;
+                text-align: center;
+                grid-template-columns: 50px 150px 50px 150px 50px 150px 50px 150px 50px;
+                margin-left: 30px;
+                margin-top: 20px;
+            }
+
+            .grid-container-three {
+                display: grid;
+                text-align: center;
+                grid-template-columns: 150px 50px 150px 50px 150px 50px 150px 50px 150px;
+                margin-top: 20px;
+                margin-left: 0px;
+            }
+
+            .grid-container1 {
+                display: grid;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: 0px;
+                grid-template-columns: 150px 50px 150px 50px 150px 50px 155px 80px;
+            }
+
+            .grid-container2 {
+                display: grid;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: 0px;
+                grid-template-columns: 35px 50px 150px 50px 260px 50px 150px 50px;
+            }
+
+            .grid-container3 {
+                display: grid;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: 0px;
+                grid-template-columns: 650px 50px 200px ;
+            }
+
+            .grid-container4 {
+                display: grid;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: 0px;
+                grid-template-columns: 550px 180px 50px;
+            }
+
+            .grid-container5 {
+                display: grid;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: 0px;
+                grid-template-columns: 150px 50px 150px 300px 50px 250px;
+            }
+
+            .good {
+                color: green;
+            }
+
+            .list {
+                list-style-type: circle;
+                display: left;
+                width: 450px;
+                height: 450px;
+                padding-top: 5px;
+                margin-left: 5px;
+                font-weight: normal;
+                list-style:circle;
+                text-align: left;
+                text-transform: none;
+            }
+
+            .bad {
+                color: red;
+            }
+
+            td {
+                padding: 2px 5px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            th {
+                padding: 2px 5px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            .issues {
+                margin-left: 20px;
+            }
+
+            .search-bar .button {
+                background-color: white;
+            }
+
+            .search-bar {
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                padding-top: 90px;
+                position: fixed;
+                padding-left: 50px;
+                max-width: 80%;
+            }
+
+            .search-bar input {
+                width: 30%;
+                min-width: 300px;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-size: 16px;
+            }
+
+            .search-display {
+                text-align: center;
+            }
+
+            .button:hover {
+                background-color: navy;
+                color: white;
+            }
+
+            .button:active {
+                background-color: navy;
+                color: white;
+                transform: translateY(3px);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="navigation">
+            <h1>BJC Healthcare</h1>
+            <ul>
+                <li class="active"><a href="https://echoapps.bjc.org/echoapplicationmodule/CustomPortal/CredStatus" target="_blank">Credentialing Status Portal</a></li>
+                <li class="active"><a href="https://msoinitialapplication.carenet.org/" target="_blank">Request A New Application</a></li>
+                <li class="active"><a href="https://echoapps.bjc.org/echoapplicationmodule/userlogin.aspx" target="_blank">Portal</a></li>
+                <li class="active"><a href="https://forms.office.com/pages/responsepage.aspx?id=wKqEGYN-K0qSXfg0panL1Bu12AdTHCNOkznt3x0z_GpURUJKV1lSR0FZVVdCOE8zNUNCRjEzQUw2SC4u&route=shorturl" target="_blank">Off Staff Or Change Request</a></li>
+            </ul>
+        </div>
+
+        <!--<script>
+            function search(string) {
+                window.find(string)
+            } 
+        </script>-->
+
+        <!--<div class="search-bar">
+            <input id="search" type="text" placeholder="&#x1F50D; Search for partial or full word"/>
+            <input class="button" id="button" type="button" value="Find Next" onclick="search(document.getElementById('search').value)">
+        </div>-->
+
+        <!--<div class="search-bar">
+            <form method="get" action="https://www.mojeek.com/search">
+                <input size="30" name="q" placeholder="Search this Page">  
+                <input type="submit" value="Search"> 
+                <div>
+                    <input type="radio" name="site" value=""https://bjccvo.github.io/FAQStatusPortal/"> search this site
+                </div>
+            </form>
+        </div>-->
+
+        <!--<div class="search-bar">
+            <form method="get" id="ddgSearch" action="https://duckduckgo.com/">
+                <input type="hidden" name="sites" value="https://bjccvo.github.io/FAQStatusPortal/"/>
+                <input type="hidden" name="k7" value="#ffffff"/>
+                <input type="hidden" name="k8" value="#222222"/>
+                <input type="hidden" name="k9" value="#00278e"/>
+                <input type="hidden" name="kx" value="#4a90e2"/>
+                <input type="hidden" name="kj" value="#fafafa"/>
+                <input type="hidden" name="kt" value="c"/>
+                <input type="text" name="q" placeholder="Search this Page" aria-label="Search https://bjccvo.github.io/FAQStatusPortal/ on DuckDuckGo"/>
+                <button type="submit">Search</button>
+            </form>
+        </div>-->
+
+        <div class="search-bar">
+            <form action="search.php" method="post">
+                <input type="text" name="findMe" placeholder="Search This Page">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+
+        <script>
+            $search = $_POST['findMe'];
+            //$search = "https://bjccvo.github.io/FAQStatusPortal/"
+            //WORD ON MAIN PAGE
+            if (stripos($home, $search) !== false) {bjccvo.github.io/FAQstatusPortal/
+                echo '<a href="'.$bjccvo.github.io/FAQstatusPortal/.'">'.$bjccvo.github.io/FAQstatusPortal/'</a>';
+            }
+        </script>
+
+        <div class="content">
+            <details name="info">
+                <summary>Searching for a Provider</summary>
+                <p>Providers can be found by searching on their last and/or first name.</p>   
+                <p>A new screen will appear that lists what facility(ies) a given provider is currently active at or applying to.</p>  
+                <p>Click on provider name to open profile.</p>
+            </details>
+
+            <details name="info">
+                <summary>General Provider Information</summary>
+                <p>This section contains information on: </p>
+                <p style="margin-left: 15px;">&#x2756; the providers WashU Faculty Appointment (if applicable)</p>
+                <p style="margin-left: 15px;">&#x2756; a summary of the facilities they are being credentialed with</p>
+            </details>
+
+            <details name="info">
+                <summary>Timeline</summary>
+                <p>This section will identify where a provider is at in the process. If there is a date populated that portion of the review has been completed.</p>
+            </details>
+
+            <details name="info">
+                <summary>Application Information</summary>
+                <p>This section contains information on the CVO process. There are both summaries of information and a full report on both the initial and reappointment process.</p>
+
+                <p>The summaries ("CVO Initial Credentialing" and "CVO Reappointment Credentialing") give a high level overview of key points in the CVO credentialing process. More detailed information can be found in "CVO Initial Credentialing Full Detail" and "CVO Reappointment Credentialing Full Detail". These areas will contain all information the CVO has collected so far in the process.</p>
+            </details>
+
+            <details name="info">
+                <summary>Credentialing Status</summary>
+                <p>This section is to identify where a provider is at in the MSO process. This can also help identify items that the MSO may still require, or items that need clarification.</p>
+
+                <p>There is a section for each type of application; Initial, Reappointment, and Change. Each section can be expanded to review where a provider is at in the MSO process (for more information on this, see section below titled "MSO Process").</p>
+
+                <p>To avoid opening each section to review, the application type can be identified in the end of the General Information section where facilities are listed for each application type.</p>
+            </details>
+
+            <details name="info">
+                <summary>Pending Information</summary>
+                <p>The items in this section are things still required in order to complete either initialing a provider, reappointing a provider, or a change of some type. Required items vary between specialties and facilities, so any questions about pending items should be directed to the specified facilities MSO. Some items, such as licenses, are standard between facilities.</p>
+            </details>
+
+            <details name="info">
+                <summary>How do I tell where an application is at in the process?</summary>
+                <p>The timeline in the Credentialing Status Portal can be used to identify which department is currently processing the providers application. If a date is populated, then that department has completed their process.</p>
+
+                <p>More information can be gathered on a departments process by going to their section in the Credentialing Status Portal. Both CVO portions will have a high level overview of key points in the process, and there will be another area that gives information on every step in the process.</p>
+
+                <p>The MSO will contain high level overview for every process type. More detailed information can be found in the pending items area or by contacting the facilities MSO.</p>
+            </details>
+
+            <details name="info">
+                <summary>When will my file go to committee?</summary>
+                <p>The anticipated dates that a provider will be taken to committee will be populated in the Credentialing Status section on the Credentialing Status Portal under "MEC", "Credentials Committee", and "AHP Committee".</p>
+
+                <p>These areas will not be immediately populated by the MSO and are dependent on other areas of the appointment being completed correctly.</p>
+
+                <p>All committee dates are subject to change.</p>
+            </details>
+
+            <br>
+
+            <details name="info">
+                <summary>CVO Initial Process</summary>
+                <p>To initiate the application process, BJC contracting entity(ies) will submit an application request form to the BJC Credentialing Verification Organization (CVO) identifying the practitioner seeking medical staff appointment/status together with pertinent identifiers, including the applicable privilege form.  The BJC CVO, together with the hospital to which the applicant is applying, will send each applicant the online application link and related materials in support of medical staff appointment and privileges.</p>
+
+                <p>Applicants will be informed that all required application information must be received by the BJC CVO before the application will be processed.  After the preliminary review of the application, the BJC CVO will determine if the application is complete.  Incomplete applications will be returned to the applicant requesting its completion as soon as possible.  If all application fields are completed with all required additional documents included, the BJC CVO will begin verification services.</p>
+
+                <p>BJC CVO will obtain primary source verification of an applicant’s credentials, including health care related education and training applicable to the license and specialty area stated in the application; state license; DEA and/or state-controlled substance certificate(s), if applicable; board certification; current professional liability insurance coverage; current and prior hospital and applicable non-hospital setting affiliations; and work history.  The BJC CVO will also query the National Practitioners Data Bank to determine reportable actions; and obtain one clinical reference to assess current clinical competency and ability to perform privileges reference and two peer references attesting to the clinical competency and professional performance of the applicant.</p>
+
+                <p>The BJC CVO will attempt to obtain primary source verification of an applicant’s credentials within 60 days from its receipt of a complete application.  Once all verifications are received, the BJC CVO will notify contracting entity by email of the availability of the provider assessment portal profile for its review.  After review of the profile and facility-specific documents, the applicant will be advanced through committees for review and, if deemed appropriate, will be recommended for approval to the contracting entity’s approving body.</p>
+            </details>
+                
+            <details name="info">
+                <summary>CVO Reappointment Process</summary>
+                <p>Medical staff and non-physician AHP member staff are reappointed to regularly re-evaluate their qualifications and competency to ensure they continue to meet the standards required to provide safe and effective patient care.  The BJC CVO designates 12 specialty cycles over a 24-month period to distribute the number of practitioners scheduled for reappointment at contracting entities.  Specialty cycles are assigned a coordinated reappointment date based on a reappointment matrix that provides no greater than a two-year reappointment period.</p>
+
+                <p>Prior to forwarding the online reappointment application link, BJC CVO will provide the applicable contracting entities with a comprehensive listing of those practitioners scheduled for reappointment.  The contracting entity will review the reappointment roster and confirm that the practitioners listed are appropriately scheduled for reappointment or if there are any additions and/or deletions.  The BJC CVO, together with the hospital to which the applicant is applying, will send each applicant an email with a link to the pre-populated online reappointment application.</p>
+
+                <p>Reappointment applicants will be informed that all required reappointment application information must be received by the BJC CVO before the reappointment verifications may be completed and a provider profile produced.  The BJC CVO will conduct a preliminary review of the reappointment application to determine whether the application is complete and the reappointment applicant indicated the requested privilege(s) on the submitted privilege form(s); i.e., not blank.  Incomplete reappointment applications will be returned to the reappointment applicant requesting its completion as soon as possible.  If all reappointment application fields are completed with all required additional documents included, the BJC CVO will begin verification services.</p>
+
+                <p>BJC CVO will obtain primary source verification of an applicant’s credentials, including health care related education and training (if completed since last reappointment); state license; DEA and/or state-controlled substance certificate(s), if applicable; board certification; current professional liability insurance coverage; and current and prior (means a change in hospital affiliation since last reappointment) hospital and applicable non-hospital setting affiliations.  The BJC CVO will also query the National Practitioners Data Bank to determine reportable actions.</p>
+
+                <p>BJC CVO will complete verifications of credentialing information within 60 days following determination of a complete reappointment application.  Once all verifications are received, the BJC CVO will notify contracting entity by email of the availability of the provider assessment portal profile for its review.  After review of the profile and facility-specific documents, the reappointment applicant will be advanced through committees for review and, if deemed appropriate, will be recommended for approval to the contracting entity’s approving body.</p>
+
+                <!--<p>Reappointments are done to ensure that providers are still licensed and certified to perform in the roles they are working. This process is worked based on a two year cadence based on the providers primary specialty. A two year cadence ensures that providers are not missed and that there is a manageable load with minimal peaks.</p>
+                
+                <p>Six months prior to the providers assigned cycle, a list is created by the CVO of providers that are due for reappointment. This list will be reviewed by the MSO to ensure that the provider does need to be reappointed at this time and are not going to have a lapse in privileges.</p>
+                
+                <p>Five months prior to the providers assigned cycle, applications are sent to the provider to be completed. This allows the provider 90 days to complete and return the application with out complications arising. After the 90 days, if the application has not been received there is another 60 days that the provider can still submit, but fees will accumulate based on the amount of time that has passed. After 150 days have passed from the provider initially receiving their application, it is at the MSO's discretion whether to continue processing or suspend the providers privileges.</p>
+                
+                <p>Once the CVO has received the application, it will be initially reviewed to check that everything was provided that is required. If an item is missing or incomplete the application will be sent back to the provider for review. If the application was completed correctly, providers items will then be verified. These items can included; licenses, boards, affiliations or employment. Upon completion of verifications, there will be a final review to ensure that everything was reviewed and all needed items were verified. If this review is correct, the application will then be sent to the MSO at the appropriate facility(ies) for their review.</p>-->
+            </details>
+                
+            <details name="info">
+                <summary>MSO Process</summary>
+                <details name="mso" style="margin-left: 20px;">
+                    <summary>Initials</summary>
+                    <p>The process begins when the provider sends an application request to the MSO at a facility. The MSO will review the request and if approved sends the required information for the CVO to begin their process. A facility packet will then be sent to the provider requesting additional information outside of the initial request and the application packet that is sent by the CVO.</p>
+
+                    <p>The provider will complete the application and return it to the CVO. Once the CVO sends notice to the MSO that there is a "good" application, notice letters will be sent regarding items still needed and where the provider is currently at in the process.</p>
+
+                    <p>A PAP will be created and sent to on-staff providers for review. The PAP repsonses will then be reviewed when they are returned. After PAP review the applying provider will be taken to committee for review and required actions will be entered on the providers application for further monitoring.</p>
+
+                    <p>Once the committee actions have been completed and BOD letter is generated and the providers review is completed.</p>
+                </details>
+                <details name="mso" style="margin-left: 20px;">
+                    <summary>Reappointment</summary>
+                    <p>The MSO reappointment process begins when a list of providers to be reappointed is sent to each facility by the CVO. The MSO will review the provided to confirm that all needed providers were caught on the CVO report, and that all the providers on the report should be reappointed. Once approved, the CVO will begin their process.</p>
+
+                    <p>As providers return their applications to the CVO, the MSO will receive a notice to review the privileges that were returned. This helps to allow sufficient time for clarification or modifications to be made.</p>
+
+                    <p>A notice will be sent to the MSO from the CVO when the CVO process is completed. The MSO will then review the summary packet that was generated by the CVO. MSO will then check that all items required for their facility are up-to-date and request if needed.</p>
+
+                    <p>The provider will then be taken to committee when the MSO completes their review. Actions will be determined during the committee process and then completed by the MSO (if needed).</p>
+
+                    <p>Once committee items are completed and BOD letter is generated and the review process is completed.</p>
+                </details>
+                <details name="mso" style="margin-left: 20px;">
+                    <summary>Change</summary>
+                    <p>This process is initiated by the provider. A request for some type of change (privileges, sponsoring physician, specialty, staff status, etc.) is sent to the MSO. The MSO review the change request and process according to the type of request and facility requirements.</p>
+
+                    <p>The length of time and the items required for a change will vary depending on the type of request that was made and individual facility requirements.</p>
+                </details>
+            </details>
+
+            <details name="info">
+                <summary>Initial Timeline</summary>
+                <div class="grid-container1">
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 22px;">App request sent to CVO</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 22px;">App request sent to Provider</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 22px;">Provider completes app and submits</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 22px;">CVO reviews submitted app</p>
+                    </div>
+                    <div class="bad" style="margin-top: 20px;">
+                        <big><big><big><big><big><big>&#11175</big></big></big></big></big></big>
+                    </div>
+                </div>
+
+                <div class="grid-container3">
+                    <div></div>
+                    <div class="good" style="margin-top: -11px;">
+                        <big><big><big><big><big><big>&#11107</big></big></big></big></big></big></big>
+                    </div>
+                    <div>
+                        <p style="padding: 0; margin-left: 40px;">CVO sends app back to provider if app is not completed appropriately</p>
+                    </div>
+                </div>
+
+                <div class="grid-container2">
+                    <div></div>
+                    <div class="good" style="margin-top: 15px;">
+                        <big><big><big><big><big><big>&#11174</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0;">Everything is reviewed a final time to check that everything was completed</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11104</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0;">Verifications are run on required items, clinical references are reviewed, peer references are reviewed, and competency is evaluated</p>
+                    </div>
+                    
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11104</big></big></big></big></big></big>
+                    </div>
+                    <div>
+                        <p style="padding: 0; margin-top: 5px;">If application is completed appropriately it is accepted</p>
+                    </div>
+                    <div class="bad" style="margin-left: 55px;">
+                        <big><big><big><big><big><big>&#11107</big></big></big></big></big></big>
+                    </div>
+                </div>
+
+                <div class="grid-container5">
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 15px;">Summary packet is generated</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">MSO are notified that provider is ready for review</p>
+                    </div>
+                    <div></div>
+                    <div class="bad"><big><big><big><big><big><big>&#11105</big></big></big></big></big></big></div>
+                    <div>
+                        <p style="padding: 0; margin-left: 35px;">CVO sends application back to provider if app is not completed appropriately</p>
+                    </div>
+                </div>
+
+                <div class="grid-container4">
+                    <div></div>
+                    <div class="define">
+                        <p>Provider makes corrections and resubmits application</p>
+                    </div>
+                    <div class="bad" style="margin-left: 60px;">
+                        <big><big><big><big><big><big>&#11168</big></big></big></big></big></big>
+                    </div>
+                    
+                </div>
+
+            </details>
+
+            <details name="info">
+                <summary>Reappointment Timeline</summary>
+                <br>
+                <div class="grid-container">
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 22px;">CVO creates cycle</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 22px;">MSO reviews cycle</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 15px;">Contact review sent to providers</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 15px;">Application sent to providers</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">Provider completes application and submits</p>
+                    </div>
+                </div>
+
+                <div class="grid-container-odd">
+                    <div style="margin-top: 20px;" class="good">
+                        <big><big><big><big><big><big>&#11174</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">Everything is reviewed a final time to check that everything was completed</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11104</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 15px;">Verifications are run on required items</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11104</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">If application is completed appropriately it is accepted</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11104</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">CVO reviews submitted application</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11168</big></big></big></big></big></big>
+                    </div>
+                </div>
+
+                <div class="grid-container-three">
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 10px;">Summary packet is generated</p>
+                    </div>
+                    <div class="good">
+                        <big><big><big><big><big><big>&#11106</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 10px;">Packet is sent to MSO for review</p>
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div style="margin-left: -40px;" class="bad">
+                        <big><big><big><big><big><big>&#11105</big></big></big></big></big></big>
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div style="margin-left: -40px;" class="bad">
+                        <big><big><big><big><big><big>&#11107</big></big></big></big></big></big>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+                
+                <div class="grid-container-odd">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">Provider makes corrections and resubmits application</p>
+                    </div>
+                    <div class="bad">
+                        <big><big><big><big><big><big>&#11104</big></big></big></big></big></big>
+                    </div>
+                    <div class="define">
+                        <p style="padding: 0; margin-top: 5px;">CVO sends application back to provider if application is not completed appropriately</p>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+            </details>
+
+            <br>
+
+            <details name="info">
+                <summary>Initial vs Reappointment vs Change</summary>
+                <p>When a provider is being initialed, it means that they are not yet on staff at a facility. So, they will be new to that facility with BJC, or BJC as a whole, which means that the process is much more rigorous. Many more things will be more closely looked at than during a reappointment or a change.</p>
+
+                <p>Reappointment is done to allow a provider to continue practicing at a facility. It will check that the information the CVO has is correct, and if not, is updated. Licenses will be re-verified, affiliations will be verified, and personal information will be checked for accuracy.</p>
+
+                <p>A change is performed when the provider wants to change some aspect of their practicing. This can be changing a sponsoring physician, adding or removing privileges, or changing departments. Changes are processed by only MSO, and can be different between facilities.</p>
+            </details>
+
+            <br>
+
+            <details name="info">
+                <summary>When do I contact PDMC?</summary>
+                <p>The PDMC is responsible maintaining provider data between the provider being initialed and reappointed, or between reappointments. So, if provider information needs to be updated, the request should be sent to PDMC@bjc.org. Changes can be for: addresses, phone, fax, cell, name, licenses, boards, certifications, etc.</p>
+            </details>
+
+            <details name="info">
+                <summary>When do I contact the CVO about an initial application?</summary>
+                <p>The CVO initial team should be contacted if a provider is being initialed. Questions regarding applications, the application portal, how to include an item in an initial application, or any other questions regarding the initial application can be directed to CVONavigator@bjc.org.</p>
+            </details>
+
+            <details name="info">
+                <summary>When do I contact the CVO about a reappointment application?</summary>
+                <p>The reappointment team should be contacted when a provider is being reappointed. Questions about the application portal, the application, privileges, attaching items, or anything else reappointment related can be sent to CVOReappointment@bjc.org.</p>
+            </details>
+
+            <details name="info">
+                <summary>When do I contact the MSO?</summary>
+                <p>The MSO should be contacted regarding questions related to faciility information, ID verifications, facility packets, privileges, etc. The contact is dependent on the facility the provider is being appointed with.</p>
+                <br>
+                <table border="1">
+                    <tr>
+                        <th>Facility</th>
+                        <th>Email to Contact</th>
+                    </tr>
+                    <tr>
+                        <td>Alton Memoral Hospital</td>
+                        <td>amh_mso@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Barnes-Jewish Hospital</td>
+                        <td>BJH_Credentialing@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Barnes-Jewish West County</td>
+                        <td>BJWC_Medical_Staff_Office@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Barnes-Jewish St. Peters</td>
+                        <td>gs-bjspmedicalstaff@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Behavioral Health</td>
+                        <td>behavioral_health@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Christian Hospital NE-NW</td>
+                        <td>ch_medical_staff_office@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Memorial Hospital</td>
+                        <td>Katie.Sellers@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Missouri Baptist Hospital-Sullivan</td>
+                        <td>Gayle.Peebles@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Missouri Baptist Medical Center</td>
+                        <td>gs-missouri-baptist@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Parkland Health Center - Bonne Terre</td>
+                        <td>Christina.Hampel@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Parkland Health Center - Farmington</td>
+                        <td>Christina.Hampel@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>Progress West Hospital</td>
+                        <td>SCC-MedicalStaff@bjc.org</td>
+                    </tr>
+                    <tr>
+                        <td>St. Louis Children's Hospital</td>
+                        <td>GS-SLCH_MSO@bjc.org</td>
+                    </tr>
+                </table>
+            </details>
+
+            <details name="info">
+                <summary>What is a kick-back?</summary>
+                <p>Kick-backs are done when more information or clarification is needed. Applications can be sent back to the provider for a number of reasons, but in any scenario the CVO and/or MSO require something further than what was provided on the application.</p>
+
+                <p>The most common cause for a kick-back is related to questions on the application being answered "YES" but with no explanation or an explanation that does not meet the outlined minimum requirements. Another common cause for a kick-back is if a malpractice insurance provided is either expired or is expiring soon; there should be at least 30 days remaining on the policy to allow time for processing.</p>
+            </details>
+
+            <br>
+
+            <details name="info">
+                <summary>Common Issues</summary>
+                    <details class="issues" name="common">
+                        <summary>CV Date Format</summary>
+                        <p>All dates must be in mm/yy format to prevent delays in application processing.</p>
+                    </details>
+
+                    <details class="issues" name="common">
+                        <summary>CV File Format</summary>
+                        <p>All CV’s must be submitted in either .pdf or .jpeg format, and be <4MB in overall size.</p>
+                    </details>
+            </details>
+
+            <br>
+
+            <details>
+                <summary>Common Abbreviations</summary>
+                <table border="1">
+                    <tr>
+                        <th>Abbreviation</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>BNDD</td>
+                        <td>Bureau of Narcotics & Dangerous Drugs</td>
+                    </tr>
+                    <tr>
+                        <td>BOD</td>
+                        <td>Board of Directors</td>
+                    </tr>
+                    <tr>
+                        <td>BOT</td>
+                        <td>Board of Trustees</td>
+                    </tr>
+                    <tr>
+                        <td>CEU</td>
+                        <td>Continuing Education Units</td>
+                    </tr>
+                    <tr>
+                        <td>CME</td>
+                        <td>Continuing Medical Education</td>
+                    </tr>
+                    <tr>
+                        <td>COI</td>
+                        <td>Certificate of Insurance</td>
+                    </tr>
+                    <tr>
+                        <td>CSR</td>
+                        <td>Controlled Substance Registration</td>
+                    </tr>
+                    <tr>
+                        <td>Cred</td>
+                        <td>Credentialing</td>
+                    </tr>
+                    <tr>
+                        <td>CVO</td>
+                        <td>Credentialing Verification Organization</td>
+                    </tr>
+                    <tr>
+                        <td>DEA</td>
+                        <td>Drug Enforcement Administration</td>
+                    </tr>
+                    <tr>
+                        <td>DOR</td>
+                        <td>Document of Recognition</td>
+                    </tr>
+                    <tr>
+                        <td>ECFMG</td>
+                        <td>Educational Commission for Foreign Medical Graduates</td>
+                    </tr>
+                    <tr>
+                        <td>FSMB</td>
+                        <td>Federation of State Medical Boards</td>
+                    </tr>
+                    <tr>
+                        <td>KB</td>
+                        <td>Kick-back</td>
+                    </tr>
+                    <tr>
+                        <td>LIP</td>
+                        <td>Licensed Independent Practitioner</td>
+                    </tr>
+                    <tr>
+                        <td>MA</td>
+                        <td>Medical Affairs</td>
+                    </tr>
+                    <tr>
+                        <td>MSO</td>
+                        <td>Medical Staff Office</td>
+                    </tr>
+                    <tr>
+                        <td>MSS</td>
+                        <td>Medical Staff Services</td>
+                    </tr>
+                    <tr>
+                        <td>NCQA</td>
+                        <td>National Committee for Quality Assurance</td>
+                    </tr>
+                    <tr>
+                        <td>NPDB</td>
+                        <td>National Practitioner Data Bank</td>
+                    </tr>
+                    <tr>
+                        <td>NPI</td>
+                        <td>National Provider Identifier</td>
+                    </tr>
+                    <tr>
+                        <td>PAP</td>
+                        <td>Provider Assessment Portal</td>
+                    </tr>
+                    <tr>
+                        <td>PDMC</td>
+                        <td>Provider Data Management Center</td>
+                    </tr>
+                    <tr>
+                        <td>PSV</td>
+                        <td>Primary Source Verification</td>
+                    </tr>
+                    <tr>
+                        <td>Reapp</td>
+                        <td>Reappointment</td>
+                    </tr>
+                    <tr>
+                        <td>TJC</td>
+                        <td>The Joint Commission</td>
+                    </tr>
+                    <tr>
+                        <td>WashU</td>
+                        <td>Washington University</td>
+                    </tr>
+                    <tr>
+                        <td>WU</td>
+                        <td>Washington University</td>
+                    </tr>
+                </table>
+            </details>
+        </div>
+    </body>
+</html>
